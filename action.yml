@@ -1,8 +1,5 @@
 name: "Checkout gitlab repo"
 description: "Pull gitlab repo into gha workflow"
-runs:
-  using: "docker"
-  image: "Dockerfile"
 inputs:
   user:
     description: "Gitlab user"
@@ -24,3 +21,8 @@ inputs:
     description: "Gitlab hostname"
     required: false
     default: gitlab.com
+runs:
+  using: "composite"
+  steps:
+    - run: git clone --origin ${{inputs.ref}} https://$${{inputs.user}}:${{inputs.token}}@${{inputs.gitlab-host}/${{inputs.repo}}.git ${{inputs.path}}
+      shell: bash
