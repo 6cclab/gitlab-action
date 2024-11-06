@@ -1,0 +1,23 @@
+name: "Checkout gitlab repo"
+description: "Pull gitlab repo into gha workflow"
+inputs:
+  user:
+    description: "Gitlab user"
+    required: true
+  token:
+    description: "Gitlab token"
+    required: true
+  repo:
+    description: "Repo name"
+    required: true
+  ref:
+    description: "Branch ref"
+    required: false
+    default: "main"
+  path:
+    description: "Output folder of checkout"
+    required: true
+  gitlab-host:
+    description: "Gitlab hostname"
+    required: false
+    default: gitlab.com
