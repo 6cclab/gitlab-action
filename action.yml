@@ -1,5 +1,8 @@
 name: "Checkout gitlab repo"
 description: "Pull gitlab repo into gha workflow"
+runs:
+  using: "docker"
+  image: "Dockerfile"
 inputs:
   user:
     description: "Gitlab user"
